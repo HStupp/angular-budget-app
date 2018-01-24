@@ -1,0 +1,10 @@
+div.modal {
+  position: absolute;
+      z-index: 1;
+      background-color: coral;
+      margin-top: 50px;
+}
+
+div.category { display: inline-grid;background-color: aliceblue;height: 300px;border: 2px solid lightblue;width: 300px;overflow: auto;margin: 1px;border-radius: 10px;}
+
+.new { color:red;}

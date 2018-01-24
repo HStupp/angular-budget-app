@@ -1,0 +1,24 @@
+<section>
+<div *ngFor="let category of budgetCategories" class="category">
+  <h2>{{category.name}}
+    <button id="btnAdd{{category.name}}" (click)="addClick(category.name)">Add Item</button>
+    <button id="btnAddClose{{category.name}}" (click)="closeAddClick(category.name)" style="display:none;">Cancel Add Item</button>
+  </h2>
+  <div id="modal{{category.name}}" style="display: none;" class="modal">
+    <p><label> Name: <input #itemName> </label>
+      <label> Category: {{category.name}} </label>
+    </p>
+      <p> <label> Amount: $<input #itemAmount> </label>
+      </p>
+      <p> <label> Category: <input #newCategory placeholder="{{category.name}}" value="{{category.name}}"> </label>
+      <button
+        (click)="add(itemName.value, itemAmount.value, newCategory.value);itemName.value='';itemAmount.value='';closeAddClick(category.name);"
+        >Confirm?
+      </button>
+    </p>
+
+  </div>
+  <app-budget-item [category]="category" [color]="category.color" [monthYear]="monthYear" [isCurrentMonth]="isCurrentMonth"></app-budget-item>
+</div>
+</section>
+<app-budget-chart [monthYear]="monthYear"></app-budget-chart>
